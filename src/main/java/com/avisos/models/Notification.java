@@ -1,5 +1,7 @@
 package com.avisos.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.mongodb.lang.Nullable;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -7,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -24,7 +25,12 @@ public class Notification {
     private Link link;
     private String created;
 
-    public Notification(String title, @Nullable String description, Link link) {
+    @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
+    public Notification(
+            @JsonProperty("title") String title,
+            @JsonProperty("description") @Nullable String description,
+            @JsonProperty("Link")Link link
+    ) {
         this.title = title;
         this.description = description;
         this.link = link;

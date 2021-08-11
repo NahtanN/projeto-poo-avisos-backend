@@ -1,12 +1,12 @@
 package com.avisos.models;
 
 import com.mongodb.lang.Nullable;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
 public class Link {
 
     @Nullable
