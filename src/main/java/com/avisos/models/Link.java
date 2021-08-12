@@ -13,6 +13,6 @@ public class Link {
     private String title;
 
     @NonNull
-    private String link;
+    private String url;
 
 }
